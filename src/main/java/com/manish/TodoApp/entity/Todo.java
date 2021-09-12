@@ -20,6 +20,16 @@ public class Todo {
     private String text;
     private Timestamp timestamp;
 
+    public Todo() {
+    }
+
+    public Todo(Long id, String title, String text) {
+        this.id = id;
+        this.title = title;
+        this.text = text;
+        this.timestamp = new Timestamp(System.currentTimeMillis());
+    }
+
     public Long getId() {
         return id;
     }
@@ -57,7 +67,7 @@ public class Todo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Todo todo = (Todo) o;
-        return id == todo.id && title.equals(todo.title) && text.equals(todo.text);
+        return Objects.equals(id, todo.id) && title.equals(todo.title) && text.equals(todo.text);
     }
 
     @Override

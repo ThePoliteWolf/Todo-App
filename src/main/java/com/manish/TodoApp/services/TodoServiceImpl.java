@@ -15,8 +15,6 @@ public class TodoServiceImpl implements TodoService{
     @Autowired
     TodoRepository todoRepository;
 
-    private List<Todo> todos = new ArrayList<>();
-
     @Override
     public List<Todo> getAll() {
         return this.todoRepository.findAll();
